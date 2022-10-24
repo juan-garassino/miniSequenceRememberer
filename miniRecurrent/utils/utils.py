@@ -45,6 +45,16 @@ def one_hot_encode(id, vocab_size):
     res[id] = 1
     return res
 
+
+def get_embedding(word_to_index, params, word):
+    try:
+        idx = word_to_index[word]
+    except KeyError:
+        print("`word` not in corpus")
+    print(f'THIS ARE THE PARAMS {params[1]}')
+    print(f'THIS ARE THE ID {idx}')
+    return params[0][idx]
+
 def generate_training_data(tokens, word_to_id, window, seed):
 
     np.random.seed(seed)
